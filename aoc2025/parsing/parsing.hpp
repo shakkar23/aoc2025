@@ -27,8 +27,16 @@ std::string parse_file(std::string_view path) {
 	return bytes;
 }
 
-std::vector<std::vector<uint8_t>> to_lines(const std::string& str) {
+std::vector<std::vector<uint8_t>> to_byte_lines(const std::string& str) {
 	auto ret = str | std::views::split('\n') | std::ranges::to<std::vector<std::vector<uint8_t>>>();
+	while (ret.size() and ret.back().empty()) {
+		ret.pop_back();
+	}
+	return ret;
+}
+
+std::vector<std::string> to_lines(const std::string& str) {
+	auto ret = str | std::views::split('\n') | std::ranges::to<std::vector<std::string>>();
 	while (ret.size() and ret.back().empty()) {
 		ret.pop_back();
 	}

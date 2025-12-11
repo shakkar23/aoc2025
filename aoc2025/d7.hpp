@@ -5,7 +5,7 @@
 #include <numeric>
 
 void d7p1() {
-	auto file_lines = to_lines(parse_file("inputs/d7.txt"));
+	auto file_lines = to_byte_lines(parse_file("inputs/d7.txt"));
 	size_t data_width = file_lines.at(0).size();
 	std::vector<bool> stream(data_width);
 	auto start_index = std::distance(file_lines.at(0).begin(), std::ranges::find(file_lines.at(0), 'S'));
@@ -36,7 +36,7 @@ void d7p1() {
 
 
 void d7p2() {
-	auto file_lines = to_lines(parse_file("inputs/d7.txt"));
+	auto file_lines = to_byte_lines(parse_file("inputs/d7.txt"));
 	size_t data_width = file_lines.at(0).size();
 	std::vector<size_t> stream(data_width);
 	auto start_index = std::distance(file_lines.at(0).begin(), std::ranges::find(file_lines.at(0), 'S'));
